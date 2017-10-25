@@ -116,6 +116,23 @@ class Twitter
 
 
 	/**
+	 * Retweets message to the Twitter.
+	 * @param  integer  the post id to retweet
+	 * @param  array  additional options to send to statuses/retweet
+	 * @return stdClass  see https://dev.twitter.com/rest/reference/post/statuses/retweet
+	 * @throws TwitterException
+	 */
+	public function retweet($id, $options = [])
+	{
+		return $this->request(
+			'statuses/retweet/' + $id,
+			'POST',
+			$options
+		);
+	}
+
+
+	/**
 	 * Sends a direct message to the specified user.
 	 * @return stdClass  see https://dev.twitter.com/rest/reference/post/direct_messages/new
 	 * @throws TwitterException
