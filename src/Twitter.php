@@ -122,13 +122,9 @@ class Twitter
 	 * @return stdClass  see https://dev.twitter.com/rest/reference/post/statuses/retweet
 	 * @throws TwitterException
 	 */
-	public function retweet($id, $options = [])
+	public function retweet($id)
 	{
-		return $this->request(
-			'statuses/retweet/' + $id,
-			'POST',
-			$options
-		);
+		return $this->request("statuses/retweet/$id", 'POST');
 	}
 
 
